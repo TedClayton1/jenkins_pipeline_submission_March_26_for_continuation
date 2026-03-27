@@ -28,8 +28,8 @@ resource "aws_s3_object" "armageddon_approval_image" {
 
 resource "aws_s3_object" "deliverable_pdf" {
   bucket       = "jenkins-bucket-20260327141147675200000001"
-  key          = "Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf"
-  source       = "./Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf"
-  etag         = filemd5("./Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf")
+  key          = "deliverable.pdf"
+  source       = "./deliverable.pdf"
+  etag         = filemd5("./deliverable.pdf")
   content_type = "application/pdf"
 }
