@@ -18,12 +18,19 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "frontend" {
-  bucket_prefix = "jenkins-bucket-"
-  force_destroy = true
+resource "aws_s3_bucket" "armageddon_approval_from_theowaf.png" {
+  bucket = "terraform-state-tedlclayton"
+  key = "armageddon_approval_from_theowaf.png"
+  source = "./armageddon_approval_from_theowaf.png"
+  etag = filemd5("./armageddon_approval_from_theowaf.png")
+  content_type = "image/png"
+)  
 
 
-  tags = {
-    Name = "Jenkins Bucket"
-  }
-}
+resource "aws_s3_bucket" "Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf" {
+  bucket = "terraform-state-tedlclayton"
+  key    = "Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf"
+  source = "./Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf"
+  etag   = filemd5("./Armageddon AWS Lab 2b Be a Man(#3) Deliverable.pdf")  
+  content_type = "text/plain"
+)
