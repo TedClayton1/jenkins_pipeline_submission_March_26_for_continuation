@@ -18,8 +18,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_s3_bucket" "frontend" {
+  bucket = "jenkins-bucket-tedlclayton"
+}
+
 resource "aws_s3_object" "armageddon_approval_image" {
-  bucket       = "jenkins-bucket-20260327141147675200000001"
+  bucket       = aws_s3_bucket.frontend.id
   key          = "armageddon_approval_from_theowaf.png"
   source       = "./armageddon_approval_from_theowaf.png"
   etag         = filemd5("./armageddon_approval_from_theowaf.png")
@@ -27,7 +31,7 @@ resource "aws_s3_object" "armageddon_approval_image" {
 }
 
 resource "aws_s3_object" "deliverable_pdf" {
-  bucket       = "jenkins-bucket-20260327141147675200000001"
+  bucket       = aws_s3_bucket.frontend.id
   key          = "deliverable.pdf"
   source       = "./deliverable.pdf"
   etag         = filemd5("./deliverable.pdf")
